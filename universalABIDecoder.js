@@ -14,7 +14,7 @@ const swapCodes = {
 
 let universalInterface = new Interface(universalAbi);
 
-function decodedExecute(transactionData,tx){
+function decodedExecute(transactionData){
     const parsedTx = universalInterface.parseTransaction({data: transactionData.input})
     
     if (!parsedTx) return
@@ -42,4 +42,8 @@ function decodedExecute(transactionData,tx){
         path: decoded[3],
         payerIsUser: decoded[4]
     }
+}
+
+module.exports  = {
+    decodedExecute: decodedExecute
 }
